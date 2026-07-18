@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sam's Club – $750 Gift Card</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; color: #222; }
+
+    .container { max-width: 480px; margin: 0 auto; background: #f5f5f5; }
+
+    /* TOP BAR */
+    .top-bar { background: #fff; text-align: center; padding: 10px; font-size: 14px; font-weight: 600; color: #333; border-bottom: 1px solid #eee; }
+    .top-bar .dot { display: inline-block; width: 10px; height: 10px; background: #2ecc71; border-radius: 50%; margin-right: 6px; }
+
+    /* LOGO */
+    .logo-wrap { background: #fff; display: flex; justify-content: center; align-items: center; padding: 24px 16px 16px; }
+    .logo-wrap img { width: 140px; }
+
+    /* HERO CARD */
+    .hero-card { background: #fff; margin: 12px; border-radius: 16px; padding: 24px 20px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+    .exclusive-badge { display: inline-block; background: #fff3e0; color: #c8590a; font-size: 12px; font-weight: 700; letter-spacing: 1px; padding: 6px 16px; border-radius: 50px; margin-bottom: 16px; }
+    .exclusive-badge::before { content: "✦ "; }
+    .hero-title { font-size: 26px; font-weight: 800; color: #111; line-height: 1.3; margin-bottom: 10px; }
+    .hero-title span { color: #0067a0; }
+    .hero-sub { font-size: 14px; color: #666; margin-bottom: 20px; }
+
+    /* GIFT CARD VISUAL */
+    .gift-card-visual { background: #111; border-radius: 14px; padding: 18px 20px; text-align: left; margin-bottom: 20px; }
+    .gc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .gc-label { font-size: 11px; color: #999; letter-spacing: 1px; text-transform: uppercase; }
+    .gc-brand { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 900; color: #fff; }
+    .gc-brand-dot { width: 10px; height: 10px; background: #E8711A; border-radius: 50%; }
+    .gc-reward-label { font-size: 11px; color: #999; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+    .gc-amount { font-size: 48px; font-weight: 900; color: #fff; }
+
+    /* CTA BUTTON */
+    .cta-btn { display: block; width: 100%; background: #0067a0; color: #fff; font-size: 18px; font-weight: 700; padding: 16px; border-radius: 50px; text-decoration: none; text-align: center; margin-bottom: 14px; transition: background 0.2s; }
+    .cta-btn:hover { background: #005080; }
+
+    .trust-row { display: flex; justify-content: center; gap: 24px; font-size: 13px; color: #555; }
+    .trust-row span { display: flex; align-items: center; gap: 5px; }
+
+    /* SOCIAL PROOF */
+    .social-proof { display: flex; align-items: center; gap: 10px; padding: 14px 16px; font-size: 14px; font-weight: 600; color: #333; background: #f5f5f5; }
+    .avatars { display: flex; }
+    .avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; margin-right: -8px; border: 2px solid #f5f5f5; }
+    .av1 { background: #e74c3c; }
+    .av2 { background: #3498db; }
+    .av3 { background: #2ecc71; }
+    .av4 { background: #e67e22; }
+    .claimed-count { color: #0067a0; margin-right: 2px; }
+
+    /* WHY SECTION */
+    .section-title { font-size: 22px; font-weight: 800; text-align: center; padding: 20px 16px 10px; }
+    .why-card { background: #fff; margin: 8px 12px; border-radius: 14px; padding: 16px; display: flex; align-items: flex-start; gap: 14px; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+    .why-icon { width: 48px; height: 48px; border-radius: 12px; background: #fff3e0; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+    .why-text h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .why-text p { font-size: 13px; color: #666; line-height: 1.5; }
+
+    /* REVIEWS */
+    .stars-big { text-align: center; font-size: 28px; color: #0067a0; padding: 24px 0 6px; }
+    .loved-title { text-align: center; font-size: 22px; font-weight: 800; }
+    .loved-sub { text-align: center; font-size: 14px; color: #666; margin-bottom: 16px; }
+
+    .review-card { background: #fff; margin: 8px 12px; border-radius: 14px; padding: 16px; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+    .review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .review-avatar { width: 40px; height: 40px; border-radius: 50%; background: #fff3e0; color: #0067a0; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+    .review-name { font-size: 15px; font-weight: 700; }
+    .review-stars { color: #0067a0; font-size: 13px; }
+    .review-text { font-size: 14px; color: #444; line-height: 1.5; font-style: italic; }
+
+    /* FAQ */
+    .faq-section { padding: 24px 12px 8px; }
+    .faq-title { font-size: 22px; font-weight: 800; margin-bottom: 12px; text-align: center; }
+    .faq-item { background: #fff; border-radius: 12px; margin-bottom: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); overflow: hidden; }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 16px; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .faq-q .arrow { color: #aaa; transition: transform 0.3s; }
+    .faq-a { font-size: 13px; color: #555; padding: 0 16px 14px; display: none; line-height: 1.6; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .arrow { transform: rotate(180deg); }
+
+    /* BOTTOM CTA */
+    .bottom-cta { background: #111; margin: 16px 12px 24px; border-radius: 16px; padding: 28px 20px; text-align: center; }
+    .bottom-cta h2 { font-size: 22px; font-weight: 800; color: #fff; line-height: 1.3; margin-bottom: 8px; }
+    .bottom-cta h2 span { color: #0067a0; }
+    .bottom-cta p { font-size: 13px; color: #aaa; margin-bottom: 20px; }
+    .bottom-cta .cta-btn { background: #0067a0; }
+    .bottom-cta .cta-btn:hover { background: #005080; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- TOP BAR -->
+  <div class="top-bar"><span class="dot"></span>2,847 online now</div>
+
+  <!-- LOGO -->
+  <div class="logo-wrap">
+    <svg width="140" height="60" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+      <rect width="200" height="80" rx="8" fill="#0067a0"/>
+      <text x="100" y="30" text-anchor="middle" fill="#fff" font-size="13" font-weight="900" font-family="Arial">SAM'S</text>
+      <text x="100" y="50" text-anchor="middle" fill="#fff" font-size="22" font-weight="900" font-family="Arial">CLUB</text>
+      <text x="100" y="68" text-anchor="middle" fill="#ffd700" font-size="10" font-family="Arial">Member's Only Rewards</text>
+    </svg>
+  </div>
+
+  <!-- HERO CARD -->
+  <div class="hero-card">
+    <div class="exclusive-badge">EXCLUSIVE OFFER</div>
+    <h1 class="hero-title">Get a <span>$750</span> Sam's Club Gift Card</h1>
+    <p class="hero-sub">Your reward is waiting. Claim it today and treat yourself!</p>
+
+    <div class="gift-card-visual">
+      <div class="gc-top">
+        <span class="gc-label">TO CLAIM</span>
+        <span class="gc-brand"><span class="gc-brand-dot"></span>Complete 4–5 deals</span>
+      </div>
+      <div class="gc-reward-label">YOUR REWARD</div>
+      <div class="gc-amount">$750</div>
+    </div>
+
+    <a href="https://linkthem.net/aff_c?offer_id=2965&aff_id=186915" class="cta-btn">Get Started →</a>
+
+    <div class="trust-row">
+      <span>🛡 Verified offer</span>
+      <span>🚚 Instant delivery</span>
+    </div>
+  </div>
+
+  <!-- SOCIAL PROOF -->
+  <div class="social-proof">
+    <div class="avatars">
+      <div class="avatar av1">DK</div>
+      <div class="avatar av2">CL</div>
+      <div class="avatar av3">AJ</div>
+      <div class="avatar av4">HJ</div>
+    </div>
+    <span><span class="claimed-count">1,664</span> claimed today</span>
+  </div>
+
+  <!-- WHY SECTION -->
+  <div class="section-title">Why claim today?</div>
+
+  <div class="why-card">
+    <div class="why-icon">🎁</div>
+    <div class="why-text">
+      <h3>$750 to spend anywhere</h3>
+      <p>Use your gift card on any product at Sam's Club — in store or online.</p>
+    </div>
+  </div>
+
+  <div class="why-card">
+    <div class="why-icon">⚡</div>
+    <div class="why-text">
+      <h3>Takes less than a minute</h3>
+      <p>Quick claim process. No lengthy forms, no hidden steps.</p>
+    </div>
+  </div>
+
+  <div class="why-card">
+    <div class="why-icon">🔒</div>
+    <div class="why-text">
+      <h3>Secure &amp; verified</h3>
+      <p>Official member rewards program. Your information stays private.</p>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="stars-big">★★★★★</div>
+  <div class="loved-title">Loved by thousands</div>
+  <div class="loved-sub">4.9 / 5 from 12,400+ verified members</div>
+
+  <div class="review-card">
+    <div class="review-header">
+      <div class="review-avatar">SM</div>
+      <div>
+        <div class="review-name">Sarah M.</div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+    </div>
+    <p class="review-text">"Couldn't believe it actually worked! Used my $750 on groceries and electronics. So happy!"</p>
+  </div>
+
+  <div class="review-card">
+    <div class="review-header">
+      <div class="review-avatar">JR</div>
+      <div>
+        <div class="review-name">James R.</div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+    </div>
+    <p class="review-text">"Quick and easy. Took me about 2 minutes total. Already shopping with my gift card!"</p>
+  </div>
+
+  <div class="review-card">
+    <div class="review-header">
+      <div class="review-avatar">PK</div>
+      <div>
+        <div class="review-name">Priya K.</div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+    </div>
+    <p class="review-text">"Was skeptical at first, but it was legit. Great deal — thank you Sam's Club!"</p>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <div class="faq-title">Frequently asked questions</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        How long does it take? <span class="arrow">&#8964;</span>
+      </div>
+      <div class="faq-a">The entire process takes less than 60 seconds. Simply click "Get Started" and follow the steps.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        When will I receive my gift card? <span class="arrow">&#8964;</span>
+      </div>
+      <div class="faq-a">Gift cards are delivered instantly via email once your claim is verified.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Can I use it for anything at Sam's Club? <span class="arrow">&#8964;</span>
+      </div>
+      <div class="faq-a">Yes! Your $750 gift card can be used on any purchase at Sam's Club, both in-store and online.</div>
+    </div>
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <div class="bottom-cta">
+    <h2>Ready to claim your <span>$750</span>?</h2>
+    <p>Join thousands of members already shopping at Sam's Club.</p>
+    <a href="https://linkthem.net/aff_c?offer_id=2965&aff_id=186915" class="cta-btn">Claim Your Gift Card →</a>
+  </div>
+
+</div>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    item.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
